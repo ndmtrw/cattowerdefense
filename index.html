@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Cat Tower Defense</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrapper">
+  <canvas id="gameCanvas" width="960" height="560"></canvas>
+  <div id="waveMsg"></div>
+  <div id="catMenu">
+    <h3 id="catMenuTitle"></h3>
+    <p id="catMenuLevel"></p>
+    <div class="bar"><div class="fill" id="catMenuXp"></div></div>
+    <p id="catMenuStats"></p>
+    <p id="catMenuMutation"></p>
+    <p id="catMenuMutationEffect"></p>
+    <button id="catUpgradeBtn"></button>
+    <button id="catSellBtn">SELL</button>
+    <button id="catCloseBtn">CLOSE</button>
+  </div>
+  <div id="overlay">
+    <div class="screen" id="menuScreen">
+      <h1>🐱 CAT TOWER DEFENSE</h1>
+      <p>Place cats to stop the dogs!</p>
+      <p>Click the map to place a cat. Click a cat to upgrade it.</p>
+      <p>Keys 1-9 choose a cat type. Element cats unlock from bosses.</p>
+      <div class="hero-preview" id="heroPreview"></div>
+      <button class="btn-start" id="startBtn">START</button>
+    </div>
+    <div class="screen" id="gameOverScreen" style="display:none">
+      <h2>GAME OVER</h2>
+      <p>SCORE: <span id="finalScore" style="color:#fbbf24;font-size:20px"></span></p>
+      <p>WAVES: <span id="finalWaves" style="color:#60a5fa;font-size:20px"></span></p>
+      <div class="hero-preview" id="endPreview"></div>
+      <button class="btn-start" onclick="restartGame()">RESTART</button>
+      <button class="btn-start" style="background:#374151;margin-top:12px" onclick="showMenu()">MENU</button>
+    </div>
+    <div class="screen" id="pauseScreen" style="display:none">
+      <h1>PAUSE</h1>
+      <button class="btn-start" onclick="resumeGame()">RESUME</button>
+    </div>
+  </div>
+  <div id="hud" style="display:none">
+    <div class="hud-pill">💰 <span id="moneyVal">300</span></div>
+    <div class="hud-pill">❤️ <span id="livesVal">20</span></div>
+    <div class="hud-pill">⭐ <span id="scoreVal">0</span></div>
+    <div class="hud-pill">Wave <span id="waveVal">0</span></div>
+    <div class="hud-pill">🔊 <button id="muteBtn" style="background:none;border:none;color:#fbbf24;cursor:pointer">SOUND ON</button></div>
+  </div>
+  <div id="towerPanel" style="display:none"></div>
+  <div id="btnRow" style="display:none">
+    <button class="btn btn-wave" id="waveBtn">START WAVE</button>
+    <button class="btn btn-pause" onclick="togglePause()">PAUSE</button>
+    <button class="btn btn-menu" onclick="showMenu()">MENU</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
